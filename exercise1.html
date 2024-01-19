@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exercise 1</title>
+    </head>
+
+    <body>
+        <form id="myForm">
+            <!-- Two text fields - Name and Email -->
+            <input id="name" type="text" placeholder="Name" value=""><br><br>
+            <input id="email" type="email" placeholder="Email" value=""><br><br>
+            <!-- Two radio buttons for Gender - Male and Female -->
+            <input type="radio" id="male" name="gender" value="Male">
+              <label for="male">Male</label><br>
+            <input type="radio" id="female" name="gender" value="Female">
+              <label for="female">Female</label><br><br>
+
+        <!-- Submit button -->
+        <input type="submit" value="Submit" onclick="return displayFormData()">
+        </form><br><br>
+
+    <!-- Display form data -->
+     <div id="data"></div>
+
+     <script>
+         function displayFormData() {
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var gender;
+
+
+    var genderElements = document.getElementsByName("gender");
+    for (var i = 0; i < genderElements.length; i++) {
+        if (genderElements[i].checked) {
+            gender = genderElements[i].value;
+            break;
+        }
+    }
+
+    // Display form data
+    var formDataDisplay = document.getElementById("data");
+    formDataDisplay.innerHTML = name + "<br>" + email + "<br>" + gender;
+
+    // Prevent form submission
+    return false;
+}
+         
+     </script>
+    
+ 
+</body>
+
+</html>
